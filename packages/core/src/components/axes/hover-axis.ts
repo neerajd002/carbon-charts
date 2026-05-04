@@ -26,7 +26,9 @@ export class HoverAxis extends Axis {
 		const self = this
 		container.selectAll('g.tick').each(function (_: any, index: number) {
 			const g = select(this) as Selection<SVGElement, any, Element, any>
-			g.classed('tick-hover', true).attr('tabindex', index === 0 ? 0 : -1)
+			g.classed('tick-hover', true)
+				.attr('role', 'button')
+				.attr('tabindex', index === 0 ? 0 : -1)
 			const textNode = g.select<SVGGraphicsElement>('text')
 			const { width, height } = DOMUtils.getSVGElementSize(textNode, {
 				useBBox: true
