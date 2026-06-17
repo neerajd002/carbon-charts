@@ -47,7 +47,7 @@ $color-map-light: map-merge(getThemeColors('light'), getGradientColors());
 .#{globals.$prefix}--chart-holder {
 	@each $token, $color in $color-map-light {
 		--cds-charts-#{$token}: #{$color};
-		--cds-charts-#{$token}-hovered: #{darken($color, 7%)};
+		--cds-charts-#{$token}-hovered: #{color.adjust($color, $lightness: -7%)};
 	}
 }
 
@@ -56,7 +56,7 @@ $color-map-dark: map-merge(getThemeColors('dark'), getGradientColors());
 .#{globals.$prefix}--chart-holder[data-carbon-theme='g100'] {
 	@each $token, $color in $color-map-dark {
 		--cds-charts-#{$token}: #{$color};
-		--cds-charts-#{$token}-hovered: #{darken($color, 7%)};
+		--cds-charts-#{$token}-hovered: #{color.adjust($color, $lightness: -7%)};
 	}
 }
 
