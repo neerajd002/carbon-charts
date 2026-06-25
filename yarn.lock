@@ -758,8 +758,8 @@ __metadata:
     typescript-eslint: "npm:^8.38.0"
     zone.js: "npm:~0.15.1"
   peerDependencies:
-    "@angular/common": ^20.0.0
-    "@angular/core": ^20.0.0
+    "@angular/common": ^20.0.0 || ^21.0.0 || ^22.0.0
+    "@angular/core": ^20.0.0 || ^21.0.0 || ^22.0.0
   languageName: unknown
   linkType: soft
 
@@ -921,7 +921,7 @@ __metadata:
     d3-cloud: "npm:^1.2.7"
     d3-sankey: "npm:^0.12.3"
     date-fns: "npm:^4.1.0"
-    dompurify: "npm:^3.3.2"
+    dompurify: "npm:^3.4.0"
     downlevel-dts: "npm:^0.11.0"
     eslint: "npm:^9.32.0"
     html-to-image: "npm:1.11.11"
@@ -7643,15 +7643,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:^3.3.2":
-  version: 3.3.3
-  resolution: "dompurify@npm:3.3.3"
+"dompurify@npm:^3.4.0":
+  version: 3.4.2
+  resolution: "dompurify@npm:3.4.2"
   dependencies:
     "@types/trusted-types": "npm:^2.0.7"
   dependenciesMeta:
     "@types/trusted-types":
       optional: true
-  checksum: 10c0/097c14a21a3f6cb95beded9ecd255f7c3512c42767b048390c747b0fe35736f6a71e02320fc50a9ac2be645834b463e4760915d595d502a56452daf339d0ea9c
+  checksum: 10c0/23ab3ab079480a49e1426c4ee7279e393913fa7f2193c4142a5be54d4163dbdd969558675876c6b8bbcbf2ad5d1bc3e00bf902acf142fff12e50274a65ae95b3
   languageName: node
   linkType: hard
 
@@ -11791,7 +11791,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.3.11, nanoid@npm:^3.3.7":
+"nanoid@npm:^3.3.11":
   version: 3.3.11
   resolution: "nanoid@npm:3.3.11"
   bin:
@@ -13206,25 +13206,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.49":
-  version: 8.4.49
-  resolution: "postcss@npm:8.4.49"
-  dependencies:
-    nanoid: "npm:^3.3.7"
-    picocolors: "npm:^1.1.1"
-    source-map-js: "npm:^1.2.1"
-  checksum: 10c0/f1b3f17aaf36d136f59ec373459f18129908235e65dbdc3aee5eef8eba0756106f52de5ec4682e29a2eab53eb25170e7e871b3e4b52a8f1de3d344a514306be3
-  languageName: node
-  linkType: hard
-
-"postcss@npm:^8.4.47, postcss@npm:^8.4.49, postcss@npm:^8.5.6":
-  version: 8.5.6
-  resolution: "postcss@npm:8.5.6"
+"postcss@npm:^8.5.10":
+  version: 8.5.14
+  resolution: "postcss@npm:8.5.14"
   dependencies:
     nanoid: "npm:^3.3.11"
     picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.1"
-  checksum: 10c0/5127cc7c91ed7a133a1b7318012d8bfa112da9ef092dddf369ae699a1f10ebbd89b1b9f25f3228795b84585c72aabd5ced5fc11f2ba467eedf7b081a66fad024
+  checksum: 10c0/48138207cf5ef5581be1bfe2cb65ccfe0ac75e43888ba045afc8ed6043d7b56aeb3b9a9fe5b353ff554be943cd0cc15d826ccb991525159175971e5ee8ab0237
   languageName: node
   linkType: hard
 
