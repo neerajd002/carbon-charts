@@ -556,7 +556,7 @@ export default [
 			'Heatmap (Custom color domain)',
 			'Letters',
 			'Months',
-			'Score (0-150)'
+			'Score (0, 150)'
 		]
 	},
 	{
