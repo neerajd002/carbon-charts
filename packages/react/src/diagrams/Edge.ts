@@ -21,6 +21,7 @@ type EdgeProps = {
 type EdgeSVGProps = Omit<React.SVGProps<SVGGElement>, 'target'>
 
 const Edge: React.FC<EdgeProps & EdgeSVGProps> = ({
+	className,
 	color,
 	markerEnd,
 	markerStart,
@@ -31,9 +32,8 @@ const Edge: React.FC<EdgeProps & EdgeSVGProps> = ({
 	...rest
 }) => {
 	const namespace = `${carbonPrefix}--cc--edge`
-	const pathClasses = classnames(namespace, {
-		[`${namespace}--${variant}`]: variant,
-		...(rest.className ? { [rest.className]: true } : {})
+	const pathClasses = classnames(namespace, className, {
+		[`${namespace}--${variant}`]: variant
 	})
 
 	let d = path
