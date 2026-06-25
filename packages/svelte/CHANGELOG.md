@@ -3,6 +3,87 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.27.13 (2026-06-25)
+
+**Note:** Version bump only for package @carbon/charts-svelte
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.27.12 (2026-06-17)
+
+**Note:** Version bump only for package @carbon/charts-svelte
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.27.11 (2026-05-12)
+
+**Note:** Version bump only for package @carbon/charts-svelte
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.27.10 (2026-05-04)
+
+**Note:** Version bump only for package @carbon/charts-svelte
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.27.9 (2026-04-22)
+
+**Note:** Version bump only for package @carbon/charts-svelte
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.27.8 (2026-04-21)
+
+**Note:** Version bump only for package @carbon/charts-svelte
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.27.7 (2026-04-20)
+
+**Note:** Version bump only for package @carbon/charts-svelte
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.27.6 (2026-04-20)
+
+**Note:** Version bump only for package @carbon/charts-svelte
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.27.5 (2026-04-20)
+
+**Note:** Version bump only for package @carbon/charts-svelte
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 1.27.4 (2026-04-20)
 
 **Note:** Version bump only for package @carbon/charts-svelte
