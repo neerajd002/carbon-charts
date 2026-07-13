@@ -77,17 +77,17 @@ export class ChartModel {
 			...(typeof tableCellFormatter === 'function'
 				? tableCellFormatter(cells)
 				: cells.map((data: (string | number)[]) => {
-						if (domainValueFormatter) {
-							data[1] = domainValueFormatter(data[1]) as string
+					if (domainValueFormatter) {
+						data[1] = domainValueFormatter(data[1]) as string
+					}
+					for (const i in data) {
+						const val = data[i]
+						if (typeof val === 'number') {
+							data[i] = numberFormatter(val, localeCode)
 						}
-						for (const i in data) {
-							const val = data[i]
-							if (typeof val === 'number') {
-								data[i] = numberFormatter(val, localeCode)
-							}
-						}
-						return data
-					}))
+					}
+					return data
+				}))
 		]
 		return result
 	}
@@ -578,11 +578,18 @@ export class ChartModel {
 
 		const hasUpdatedDeactivatedItems = dataGroups.some((group: any) => group.status === DISABLED)
 
-		// If there are deactivated items, map the item name into selected groups
-		if (hasUpdatedDeactivatedItems) {
+		// Preserve selectedGroups whenever we were in a filtered state before this toggle,
+		// EXCEPT when the "reset all" path ran (only active item was re-clicked → all restored).
+		// The reset case is: hasDeactivatedItems was true, activeItems had exactly one entry,
+		// and that entry is the item just clicked — which triggers the "activate all" branch above.
+		const wasReset =
+			hasDeactivatedItems && activeItems.length === 1 && activeItems[0].name === changedLabel
+
+		if (hasUpdatedDeactivatedItems || (hasDeactivatedItems && !wasReset)) {
+			// Still in a filtered state, or just re-enabled the last hidden item — keep selectedGroups
 			options.data.selectedGroups = updatedActiveItems.map((activeItem: any) => activeItem.name)
 		} else {
-			// If every item is active, clear array
+			// No filter in effect (either was never filtered, or user just reset) — clear selectedGroups
 			options.data.selectedGroups = []
 		}
 
@@ -658,9 +665,9 @@ export class ChartModel {
 		let className = configs.originalClassName
 		configs.classNameTypes.forEach(
 			type =>
-				(className = configs.originalClassName
-					? `${className} ${type}-${colorPairingTag}`
-					: `${type}-${colorPairingTag}`)
+			(className = configs.originalClassName
+				? `${className} ${type}-${colorPairingTag}`
+				: `${type}-${colorPairingTag}`)
 		)
 
 		return className || ''
