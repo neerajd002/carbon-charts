@@ -550,13 +550,16 @@ export class ChartModel {
 
 		const hasDeactivatedItems = dataGroups.some((group: any) => group.status === DISABLED)
 		const activeItems = dataGroups.filter((group: any) => group.status === ACTIVE)
+		const options = this.getOptions()
 
-		// If there are deactivated items, toggle "changedLabel"
-		if (hasDeactivatedItems) {
-			// If the only active item is being toggled
-			// Activate all items
+		// Treat "all explicitly selected" (selectedGroups non-empty, no DISABLED items) the same
+		// as having deactivated items — the user is in a filtered state, not the default all-active state.
+		const isInFilteredState = hasDeactivatedItems || options.data.selectedGroups.length > 0
+
+		// If in a filtered state, toggle "changedLabel"
+		if (isInFilteredState) {
+			// If the only active item is being toggled, activate all items (reset)
 			if (activeItems.length === 1 && activeItems[0].name === changedLabel) {
-				// If every item is active, then enable "changedLabel" and disable all other items
 				dataGroups.forEach((_: any, i: number) => {
 					dataGroups[i].status = ACTIVE
 				})
@@ -566,7 +569,7 @@ export class ChartModel {
 					dataGroups[indexToChange].status === DISABLED ? ACTIVE : DISABLED
 			}
 		} else {
-			// If every item is active, then enable "changedLabel" and disable all other items
+			// No filter in effect — first click isolates the clicked item, disabling all others
 			dataGroups.forEach((group: any, i: number) => {
 				dataGroups[i].status = group.name === changedLabel ? ACTIVE : DISABLED
 			})
@@ -574,22 +577,17 @@ export class ChartModel {
 
 		// Updates selected groups
 		const updatedActiveItems = dataGroups.filter((group: any) => group.status === ACTIVE)
-		const options = this.getOptions()
 
 		const hasUpdatedDeactivatedItems = dataGroups.some((group: any) => group.status === DISABLED)
 
-		// Preserve selectedGroups whenever we were in a filtered state before this toggle,
-		// EXCEPT when the "reset all" path ran (only active item was re-clicked → all restored).
-		// The reset case is: hasDeactivatedItems was true, activeItems had exactly one entry,
-		// and that entry is the item just clicked — which triggers the "activate all" branch above.
-		const wasReset =
-			hasDeactivatedItems && activeItems.length === 1 && activeItems[0].name === changedLabel
+		// Detect the "reset all" case: the only active item was re-clicked → all items restored.
+		const wasReset = isInFilteredState && activeItems.length === 1 && activeItems[0].name === changedLabel
 
-		if (hasUpdatedDeactivatedItems || (hasDeactivatedItems && !wasReset)) {
-			// Still in a filtered state, or just re-enabled the last hidden item — keep selectedGroups
+		if (hasUpdatedDeactivatedItems || (isInFilteredState && !wasReset)) {
+			// Still in a filtered state — keep selectedGroups up to date
 			options.data.selectedGroups = updatedActiveItems.map((activeItem: any) => activeItem.name)
 		} else {
-			// No filter in effect (either was never filtered, or user just reset) — clear selectedGroups
+			// No filter in effect (was never filtered, or user just reset) — clear selectedGroups
 			options.data.selectedGroups = []
 		}
 
